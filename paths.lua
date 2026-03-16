@@ -6,34 +6,34 @@
 
 -- Define a function to copy the absolute path to the system clipboard
 function CopyAbsPathToClipboard()
-    -- Get the absolute path of the current file
-    local abs_path = vim.fn.expand("%:p:h")
-    -- Copy the absolute path to the system clipboard
-    vim.fn.setreg('+', abs_path)
-    -- Notify the user
-    print("Copied to clipboard: " .. abs_path)
+	-- Get the absolute path of the current file
+	local abs_path = vim.fn.expand("%:p:h")
+	-- Copy the absolute path to the system clipboard
+	vim.fn.setreg("+", abs_path)
+	-- Notify the user
+	print("Copied to clipboard: " .. abs_path)
 end
 
 function GetFileNameFromPathAndPaste()
-    local filepath = vim.fn.getreg('%')
-    local filename = vim.fn.fnamemodify(filepath, ':t')
-    filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
-    vim.fn.setreg('o', filename)
-    vim.cmd("normal! \"op")
+	local filepath = vim.fn.getreg("%")
+	local filename = vim.fn.fnamemodify(filepath, ":t")
+	filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
+	vim.fn.setreg("o", filename)
+	vim.cmd('normal! "op')
 end
 
 function SaveFileNameToSystemRegister()
-    local filepath = vim.fn.getreg('%')
-    local filename = vim.fn.fnamemodify(filepath, ':t')
-    filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
-    vim.fn.setreg('*', filename)
-    print("Filename copied to system register")
+	local filepath = vim.fn.getreg("%")
+	local filename = vim.fn.fnamemodify(filepath, ":t")
+	filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
+	vim.fn.setreg("*", filename)
+	print("Filename copied to system register")
 end
 
 function SetPathAsCurrent()
-    local filepath = vim.fn.getreg('%')
-    local filename = vim.fn.fnamemodify(filepath, ':t')
-    filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
-    vim.cmd("cd " .. filepath)
-    print("Changed directory to: " .. filepath)
+	local filepath = vim.fn.getreg("%")
+	local filename = vim.fn.fnamemodify(filepath, ":t")
+	filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
+	vim.cmd("cd " .. filepath)
+	print("Changed directory to: " .. filepath)
 end
