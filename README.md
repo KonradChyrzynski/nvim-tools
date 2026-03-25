@@ -1,6 +1,6 @@
-# nvim-paths
+# nvim-tools
 
-**nvim-paths** is a lightweight Neovim Lua utility that simplifies working with file paths and filenames directly within Neovim. It provides helper functions to copy and manipulate file paths, filenames, and directories—all using native Neovim capabilities.
+**nvim-tools** A collection of essential utilities and quality-of-life enhancements designed to fill the functional gaps in Neovim's default feature set.
 
 ## Features
 
@@ -8,6 +8,8 @@
 - 📝 Extract and paste the filename (without extension) from a path
 - 💾 Save the filename (without extension) to the system clipboard
 - 📁 Change the working directory to the path of the current file
+- Delete one item from quickfix list
+- Delete many items from quickfix list from visual mode
 
 ## Usage
 
@@ -32,4 +34,8 @@ setup()
 
 -- Map the function to a key combination, e.g., <leader>cp
 vim.api.nvim_set_keymap('n', '<leader>cpp', ':lua CopyAbsPathToClipboard()<CR>', { noremap = true, silent = true })
+```
+Set keymaps for quickfix window
+```lua
+TODO
 ```
