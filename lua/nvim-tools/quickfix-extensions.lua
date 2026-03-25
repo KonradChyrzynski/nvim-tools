@@ -1,6 +1,6 @@
 local M = {}
 
-function M.remove_quickfix_item()
+function M.RemoveQuickfixItem()
 	local qflist = vim.fn.getqflist()
 	local idx = vim.fn.line(".") -- Current line in quickfix window
 
@@ -13,7 +13,7 @@ function M.remove_quickfix_item()
 	end
 end
 
-function M.remove_quickfix_items_visual()
+function M.RemoveQuickfixItemsVisual()
 	local qflist = vim.fn.getqflist()
 	local start_idx = vim.fn.line("v")
 	local end_idx = vim.fn.line(".")
