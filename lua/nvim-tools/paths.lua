@@ -31,13 +31,12 @@ function M.SaveFileNameToSystemRegister()
 	print("Filename copied to system register")
 end
 
--- TODO: Fix this
--- function M.SetPathAsCurrent()
--- 	local filepath = vim.fn.getreg("%")
--- 	local filename = vim.fn.fnamemodify(filepath, ":t")
--- 	filename = filename:gsub("%..-$", "") -- Remove everything after the last dot
--- 	vim.cmd("cd " .. filepath)
--- 	print("Changed directory to: " .. filepath)
--- end
+function M.SetPathAsCurrent()
+    local abs_path = vim.fn.expand("%:p:h")
+
+	vim.cmd("cd " .. string.format("%s", abs_path))
+
+	print("Changed directory to: " .. abs_path)
+end
 
 return M
